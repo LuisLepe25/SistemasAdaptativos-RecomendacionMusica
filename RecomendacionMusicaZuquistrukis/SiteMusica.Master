@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMusica.master.cs" Inherits="RecomendacionMusicaZuquistrukis.SiteMusica" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    
+    <!--Verificadores-->
+	<meta charset="UTF-8">
+
+    <!-- CSS sitio -->
+	<link rel="stylesheet" type="text/css" href="Estilos/normalize.css">
+	<link rel="stylesheet" type="text/css" href="Estilos/style.css">
+	<link rel="stylesheet" type="text/css" href="Estilos/Css.css">
+
+	<!-- JS site -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script type="text/javascript" src="Js/modernizr-custom.js"></script>
+	
+	<!--SEO-->
+    <title><%: Page.Title %></title>
+    <meta name="description" content='Sistema de recomendaciones online especializado en musica streaming ' />
+	<meta name="keywords"    content='Musica online, Recomendacion de musica, Musica en streaming, Escuchar musica onlines, Escuchar musica'/>
+	<meta name="Publisher"	 content="Sistema de recomendacion | Athena music"/>
+
+    <!-- FAvicon -->
+	<link rel="icon" href="Imagenes/favicon.ico" type="image/ico"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:LoginView runat="server" ViewStateMode="Disabled">
+            <AnonymousTemplate>
+                <header>
+		            <nav>
+			            <ul>
+				            <li><a href="mInicio.aspx">Inicio</a></li>
+				            <li><a href="mRegistro.aspx">Registro</a></li>
+			            </ul>
+		            </nav>
+	            </header>
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <header>
+		            <nav>
+			            <ul>
+                            <li><a class="user">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+				            <li><a href="mRecomendacion.aspx">Recomendacion</a></li>
+				            <li><a href="mTuMusica.aspx">Tu lista</a></li>
+                            <li><a href="mMusica.aspx">Musica</a></li>
+                            <li><asp:LoginStatus runat="server" ID="desloguear" LogoutAction="Redirect" LogoutText="Salir" LogoutPageUrl="~/mInicio.aspx" OnLoggingOut="Unnamed_LoggingOut" /></li>
+			            </ul>
+		            </nav>
+	            </header>
+            </LoggedInTemplate>
+        </asp:LoginView>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
