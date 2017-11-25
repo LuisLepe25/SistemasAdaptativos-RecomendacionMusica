@@ -1,0 +1,1 @@
+Proyecto para la materia de Sistemas Adaptativos creado por alumnos de FIME, el sistema se encarga de recomendar música de manera personalizada a través de un algoritmo genetico.
